@@ -1,0 +1,33 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>List of Orders</h1>
+        <script>
+            function httpGetData()
+            {
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.open( "GET", "http://localhost:8080/listorders", false );
+                xmlHttp.send( null );
+                return xmlHttp.responseText;
+            }
+            var orders = httpGetData();
+            var ordersIdList = orders.substring(1,orders.length-1).split(",");
+            for(i=0;i<ordersIdList.length;i++) {
+                ordersIdList[i] = ordersIdList[i].substring(1,ordersIdList[i].length-1);
+                document.write(
+                    //"<button onclick=onSubmit(this.attributes['id'].value) type='button' value='pay amount for' id='"+ordersIdList[i]+"'>"+ordersIdList[i]+"</button><br />"
+                    ordersIdList[i]+"<br/><br/>"
+                );
+            }
+        </script>
+        <br/>
+        <h1>Place New Orders</h1>
+        <br/>
+        <a href="/placeorder.html">link</a>
+        <br/>
+        <h1>Pay for existing orders</h1>
+        <br/>
+        <a href="/payment.html">link</a>
+    </body>
+</html>
