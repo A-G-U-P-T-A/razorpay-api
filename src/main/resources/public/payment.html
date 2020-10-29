@@ -7,7 +7,7 @@
     <script>
         function orderAmount(order_id) {
             var xmlHttp = new XMLHttpRequest();
-                xmlHttp.open( "GET", "http://localhost:8080/getorderamountdue?id="+order_id, false );
+                xmlHttp.open( "GET", "https://razorpay-api-master-dq2s4rnxip.herokuapp.com/getorderamountdue?id="+order_id, false );
                 xmlHttp.send( null );
                 console.log(xmlHttp.responseText);
                 return xmlHttp.responseText;
@@ -19,7 +19,7 @@
                     paymentId: payment_id 
                 };
                 console.log(params);
-                xmlHttp.open( "POST", "http://localhost:8080/updateorder", false );
+                xmlHttp.open( "POST", "https://razorpay-api-master-dq2s4rnxip.herokuapp.com/updateorder", false );
                 xmlHttp.setRequestHeader('Content-type', 'application/json')
                 xmlHttp.send(JSON.stringify(params))
                 console.log(xmlHttp.responseText);
@@ -34,7 +34,7 @@
             "name": "Acme Corp",
             "description": "Test Transaction",
             "order_id": document.getElementById('order_id').value,
-            "callback_url": "http://localhost:8080/",
+            "callback_url": "https://razorpay-api-master-dq2s4rnxip.herokuapp.com",
             "prefill": {
                 "name": document.getElementById('name').value,
                 "email": document.getElementById('email').value,

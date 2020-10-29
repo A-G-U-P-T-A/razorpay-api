@@ -11,7 +11,7 @@
                         amount: document.getElementById('amount').value,
                         currency: currency
                     };
-                    xmlHttp.open( "POST", "http://localhost:8080/createorder", false );
+                    xmlHttp.open( "POST", "https://razorpay-api-master-dq2s4rnxip.herokuapp.com/createorder", false );
                     xmlHttp.setRequestHeader('Content-type', 'application/json');
                     xmlHttp.send(JSON.stringify(params));
                     console.log(xmlHttp.responseText);
