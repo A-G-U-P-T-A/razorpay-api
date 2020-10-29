@@ -28,6 +28,6 @@ public class MongoService {
 
     public void updateEntry(String collectionName, UpdateOrder updateOrder) {
         Bson filter = Filters.eq("orderId", updateOrder.getOrderId());
-        mongoClient.getDatabase("razorpay").getCollection(collectionName).updateOne(filter, new Document("$set", new Document().append("paymentId", updateOrder.getPaymentId()).append("updatedAt", System.currentTimeMillis())));
+        mongoClient.getDatabase("razorpay").getCollection(collectionName).updateOne(filter, new Document("$set", new Document().append("paymentId", updateOrder.getPaymentId()).append("updatedAt", new java.util.Date())));
     }
 }
